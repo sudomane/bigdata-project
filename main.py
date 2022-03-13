@@ -4,9 +4,8 @@ import pandas as pd
 how_to_use = "Usage: main.py [path to excel database]"
 
 arguments = len(sys.argv)
-parameter = sys.argv[1]
 
-if (arguments == 2 and (parameter == 'h' or parameter == "help")):
+if (arguments == 2 and (sys.argv[1] == 'h' or sys.argv[1] == "help")):
     print(how_to_use)
     exit(1)
 
@@ -15,7 +14,7 @@ dataset = "https://data.ratp.fr/explore/dataset/trafic-annuel-entrant-par-statio
 
 # If arguments are provided, use path to dataset. If not, URL is used by default.
 if (arguments == 2):
-    dataset = parameter
+    dataset = sys.argv[1]
     
 # Throw exception if we couldn't load the file, or URL is invalid.
 try:
