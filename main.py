@@ -1,7 +1,7 @@
 import sys
-import pandas as pd
+from dataprocessing import loadData
 
-how_to_use = "Usage: main.py [path to excel database]"
+how_to_use = "Usage: main.py [path to json database]"
 
 arguments = len(sys.argv)
 
@@ -16,8 +16,4 @@ dataset = "https://data.ratp.fr/explore/dataset/trafic-annuel-entrant-par-statio
 if (arguments == 2):
     dataset = sys.argv[1]
 
-# Throw exception if we couldn't load the file, or URL is invalid.
-try:
-    dataframe = pd.read_json(dataset)
-except Exception as e:
-    print(e)
+dataframe = loadData(dataset)
