@@ -3,7 +3,7 @@ import pytest
 # Import functions to test
 from src.dataprocessing import loadData
 
-url = "https://data.ratp.fr/explore/dataset/trafic-annuel-entrant-par-station-du-reseau-ferre-2020/download/?format=json&timezone=Europe/Berlin&lang=fr"
+url = "https://data.ratp.fr/explore/dataset/trafic-annuel-entrant-par-station-du-reseau-ferre-2020/download/?format=csv&timezone=Europe/Berlin&lang=fr&use_labels_for_header=true&csv_separator=%3B"
 
 # Simply checking if the column "Rang" is in the dataframe.
 # If it is, then the dataframe has been correctly loaded.
