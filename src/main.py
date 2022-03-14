@@ -18,4 +18,5 @@ if (arguments == 2):
     dataset = sys.argv[1]
 
 dataframe = dp.loadData(dataset)
-display(dataframe)
+display(dataframe[["Station", "1", "2", "3", "4", "5", "Trafic"]])
+print("HI")
