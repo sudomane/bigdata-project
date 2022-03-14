@@ -1,6 +1,6 @@
 import sys
+import dataprocessing as dp
 from IPython.display import display
-from dataprocessing import loadData
 
 how_to_use = "Usage: main.py [path to csv database]"
 
@@ -17,5 +17,6 @@ dataset = "https://data.ratp.fr/explore/dataset/trafic-annuel-entrant-par-statio
 if (arguments == 2):
     dataset = sys.argv[1]
 
-dataframe = loadData(dataset)
-display(dataframe)
+dataframe = dp.loadData(dataset)
+metrolines = dataframe.groupby(by=["Correspondance_1"])
+display(metrolines.first())
