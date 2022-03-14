@@ -1,5 +1,8 @@
 import pytest
 
+# Import functions to test
+from src.dataprocessing import loadData
+
 url = "https://data.ratp.fr/explore/dataset/trafic-annuel-entrant-par-station-du-reseau-ferre-2020/download/?format=json&timezone=Europe/Berlin&lang=fr"
 
 # Simply checking if the column "Rang" is in the dataframe.
