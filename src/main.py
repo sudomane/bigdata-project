@@ -18,5 +18,4 @@ if (arguments == 2):
     dataset = sys.argv[1]
 
 dataframe = dp.loadData(dataset)
-metrolines = dataframe.groupby(by=["Correspondance_1"])
-display(metrolines.first())
+display(dataframe)
