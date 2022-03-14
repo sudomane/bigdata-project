@@ -1,6 +1,7 @@
 import sys
 from IPython.display import display
 from dataprocessing import loadData
+import matplotlib.pyplot as plt
 
 how_to_use = "Usage: main.py [path to csv database]"
 
@@ -18,4 +19,7 @@ if (arguments == 2):
     dataset = sys.argv[1]
 
 dataframe = loadData(dataset)
-display(dataframe)
+# display(dataframe)
+
+dataframe.plot()
+plt.show()
