@@ -1,6 +1,6 @@
 import pandas as pd
 
-def loadData(dataset : str):
+def loadData(dataset : str) -> pd.DataFrame:
     # Throw exception if we couldn't load the file, or URL is invalid.
     try:
         # Load dataframe
@@ -16,7 +16,7 @@ def loadData(dataset : str):
     except Exception as e:
         print("Caught exception: " + str(e))
         
-def getLineInfo(df : pd.DataFrame, line : str):
+def getLineInfo(df : pd.DataFrame, line : str) -> dict:
     dict = {}
 
     # 0 - Stations
