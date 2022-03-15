@@ -9,6 +9,7 @@ def loadData(dataset : str) -> pd.DataFrame:
         # Select the all the correspondances column
         df['Correspondances'] = df[df.columns[4:9]].values.tolist()
         
+        # Drop all useless columns
         df.drop(df.columns[4:11], axis=1, inplace=True)
         df.drop(df.columns[0:2], axis=1, inplace=True)
 
