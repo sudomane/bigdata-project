@@ -50,8 +50,6 @@ colors = {
 dataframe.hist(column='Trafic', bins=26, grid=False, figsize=(12,8), color=colors["1"], zorder=2, rwidth=0.9)
 trafic = dataframe['Trafic'].tolist()
 stations = dataframe['Station'].tolist()
-# x = range(1, len(stations) +1)
-# plt.xticks(np.array(x), stations)
-# plt.plot(x, trafic)
-plt.show()
 
+# Refer to the PYBD Docker section on making graphs.
+plt.show()
