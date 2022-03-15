@@ -1,6 +1,9 @@
 import sys
+import dataprocessing as dp
 from IPython.display import display
-from dataprocessing import loadData
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 how_to_use = "Usage: main.py [path to csv database]"
 
@@ -17,5 +20,36 @@ dataset = "https://data.ratp.fr/explore/dataset/trafic-annuel-entrant-par-statio
 if (arguments == 2):
     dataset = sys.argv[1]
 
-dataframe = loadData(dataset)
-display(dataframe)
+dataframe = dp.loadData(dataset)
+x = dp.getLineInfo(dataframe, "7")
+print(x)
+colors = {
+    "1" : "#fecd04",
+    "2" : "#006cb8",
+    "3" : "#9b983b",
+    "3bis" : "#89d3de",
+    "4" : "#bd499c",
+    "5" : "#f68d49",
+    "6" : "#76c595",
+    "7" : "#eb96a6",
+    "7bis" : "#76c596",
+    "8" : "#c3a0ca",
+    "9" : "#cdc729",
+    "10" : "#deaf39",
+    "11" : "#8d6438",
+    "12" : "#008c59",
+    "13" : "#86cfdb",
+    "14" : "#642c8f",
+    "A" : "#ff1400",
+    "B" : "#3c91dc",
+    "C" : "#ffbe00",
+    "D" : "#00643c",
+    "E" : "#a0006e",
+}
+
+#dataframe.hist(column='Trafic', bins=26, grid=False, figsize=(12,8), color=colors["1"], zorder=2, rwidth=0.9)
+#trafic = dataframe['Trafic'].tolist()
+#stations = dataframe['Station'].tolist()
+
+# Refer to the PYBD Docker section on making graphs.
+#plt.show()
