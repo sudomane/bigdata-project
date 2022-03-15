@@ -4,7 +4,7 @@ def loadData(dataset):
     # Throw exception if we couldn't load the file, or URL is invalid.
     try:
         dataframe = pd.read_csv(dataset, sep=";")
- 
+        
         c_1 = dataframe.Correspondance_1=="2"
         c_2 = dataframe.Correspondance_2=="2"
         c_3 = dataframe.Correspondance_3=="2"

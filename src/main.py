@@ -1,8 +1,9 @@
 import sys
+import dataprocessing as dp
 from IPython.display import display
-from dataprocessing import loadData
 import matplotlib.pyplot as plt
 import numpy as np
+
 
 how_to_use = "Usage: main.py [path to csv database]"
 
@@ -19,7 +20,7 @@ dataset = "https://data.ratp.fr/explore/dataset/trafic-annuel-entrant-par-statio
 if (arguments == 2):
     dataset = sys.argv[1]
 
-dataframe = loadData(dataset)
+dataframe = dp.loadData(dataset)
 display(dataframe)
 
 dataframe.hist(column='Trafic', bins=26, grid=False, figsize=(12,8), color='#86bf91', zorder=2, rwidth=0.9)
