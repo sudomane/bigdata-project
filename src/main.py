@@ -22,7 +22,6 @@ if (arguments == 2):
 
 dataframe = dp.loadData(dataset)
 display(dataframe)
-
 colors = {
     "1" : "#fecd04",
     "2" : "#006cb8",
@@ -47,9 +46,9 @@ colors = {
     "E" : "#a0006e",
 }
 
-dataframe.hist(column='Trafic', bins=26, grid=False, figsize=(12,8), color=colors["1"], zorder=2, rwidth=0.9)
-trafic = dataframe['Trafic'].tolist()
-stations = dataframe['Station'].tolist()
+#dataframe.hist(column='Trafic', bins=26, grid=False, figsize=(12,8), color=colors["1"], zorder=2, rwidth=0.9)
+#trafic = dataframe['Trafic'].tolist()
+#stations = dataframe['Station'].tolist()
 
 # Refer to the PYBD Docker section on making graphs.
-plt.show()
+#plt.show()
