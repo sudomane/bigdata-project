@@ -1,11 +1,12 @@
 import pandas as pd
 
-def loadData(dataset):
+def loadData(dataset : str):
     # Throw exception if we couldn't load the file, or URL is invalid.
     try:
         # Load dataframe
         df = pd.read_csv(dataset, sep=";")
                 
+        # Select the all the correspondances column
         df['Correspondances'] = df[df.columns[4:9]].values.tolist()
         
         df.drop(df.columns[4:11], axis=1, inplace=True)
@@ -14,3 +15,16 @@ def loadData(dataset):
         return df
     except Exception as e:
         print("Caught exception: " + str(e))
+        
+def getLineInfo(df : pd.DataFrame, line : str):
+    dict = {}
+
+    # 0 - Stations
+    # 1 - Trafic
+    # 2 - Correspondances
+
+    for i in range(df.index.size):
+        if line in df.iloc[i, 2]:
+            dict[df.iloc[i, 0]]  = df.iloc[i, 1]
+    
+    return dict

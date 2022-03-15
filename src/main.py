@@ -21,7 +21,8 @@ if (arguments == 2):
     dataset = sys.argv[1]
 
 dataframe = dp.loadData(dataset)
-display(dataframe)
+x = dp.getLineInfo(dataframe, "14")
+
 colors = {
     "1" : "#fecd04",
     "2" : "#006cb8",
