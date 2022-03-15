@@ -16,6 +16,7 @@ def loadData(dataset : str) -> pd.DataFrame:
     except Exception as e:
         print("Caught exception: " + str(e))
         
+# SHOULD WE USE DICTIONNARIES, OR RETURN A TUPLE OF X, Y LISTS?
 def getLineInfo(df : pd.DataFrame, line : str) -> dict:
     dict = {}
 
