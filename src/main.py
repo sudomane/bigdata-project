@@ -2,6 +2,7 @@ import sys
 from IPython.display import display
 from dataprocessing import loadData
 import matplotlib.pyplot as plt
+import numpy as np
 
 how_to_use = "Usage: main.py [path to csv database]"
 
@@ -19,7 +20,13 @@ if (arguments == 2):
     dataset = sys.argv[1]
 
 dataframe = loadData(dataset)
-# display(dataframe)
+display(dataframe)
 
-dataframe.plot()
+dataframe.hist(column='Trafic', bins=26, grid=False, figsize=(12,8), color='#86bf91', zorder=2, rwidth=0.9)
+trafic = dataframe['Trafic'].tolist()
+stations = dataframe['Station'].tolist()
+# x = range(1, len(stations) +1)
+# plt.xticks(np.array(x), stations)
+# plt.plot(x, trafic)
 plt.show()
+
