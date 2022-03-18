@@ -1,6 +1,10 @@
 import os
 import glob
 import pandas as pd
+import plotly
+
+# Setting plotting backend to use plotly
+pd.options.plotting.backend = "plotly"
 
 # CSV databases from 2010 to 2020
 path = os.path.join(os.getcwd(), "src")
