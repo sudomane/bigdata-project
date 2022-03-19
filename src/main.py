@@ -23,17 +23,17 @@ print("Loaded database in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
 
 t_1 = time.time()
 # Demonstration on how to use the function
-totalaccidents_2010 = dp.getInfo(df, 2010, accidentType="Léger",vehicleType="TC", age=2)
+totalaccidents = dp.getInfo(df, accidentType="Léger", vehicleType="TC", age=2)
 t_2 = time.time()
 
-print(totalaccidents_2010)
+print(totalaccidents)
 print("Fetched data in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
 
 # TODO: Dynamically display different vehicle types, and accident types
 # NOTE: Refer to Chapter 23 - Dynamic Graphs with Plotly -- Subplots, in docker courses, check unemployment graph for more info
 fig = px.histogram(
-    df,
-    x = df["Année"]
+    totalaccidents,
+    x = totalaccidents["Année"]
 )
 
 fig.show()

@@ -35,9 +35,15 @@ def loadData() -> pd.DataFrame:
 # This function returns a dataframe matching the given specifications.
 # If accidentType, vehicleType and age are "None", then it will only
 # select all the rows of the matching year.
-def getInfo(df : pd.DataFrame, year : int, accidentType=None, vehicleType=None, age=None) -> pd.DataFrame:
+def getInfo(df : pd.DataFrame, year=None, accidentType=None, vehicleType=None, age=None) -> pd.DataFrame:
     
-    mask = (df['Année'] == year)
+    if (year == None and accidentType == None and vehicleType == None and age == None):
+        return df
+
+    mask = True
+
+    if (year):
+        mask = (df['Année'] == year)
     
     if (accidentType):
         mask = mask & (df["Type Accident"] == accidentType)
