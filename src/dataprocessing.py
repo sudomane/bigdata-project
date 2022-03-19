@@ -2,7 +2,7 @@ import os
 import glob
 import pandas as pd
 import plotly
-
+                        
 # Setting plotting backend to use plotly
 pd.options.plotting.backend = "plotly"
 
@@ -29,5 +29,23 @@ def loadData() -> pd.DataFrame:
     
     # Remove redundant "Accident" prefix in every row
     dataframe["Type Accident"].replace(to_replace="Accident *", value = "", regex=True, inplace=True)
-    
+
     return dataframe
+
+# This function returns a dataframe matching the given specifications.
+# If accidentType, vehicleType and age are "None", then it will only
+# select all the rows of the matching year.
+def getInfo(df : pd.DataFrame, year : int, accidentType=None, vehicleType=None, age=None) -> pd.DataFrame:
+    
+    mask = (df['Année'] == year)
+    
+    if (accidentType):
+        mask = mask & (df["Type Accident"] == accidentType)
+
+    if (vehicleType):
+        mask = mask & (df["Catégorie véhicule"] == vehicleType)
+
+    if (age):
+        mask = mask & (df["Age véhicule"] == age)
+
+    return df.loc[mask]
