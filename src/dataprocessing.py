@@ -48,4 +48,4 @@ def getInfo(df : pd.DataFrame, year : int, accidentType=None, vehicleType=None, 
     if (age):
         mask = mask & (df["Age véhicule"] == age)
 
-    return df.loc[mask]
+    return df.loc[mask].copy(deep=True)
