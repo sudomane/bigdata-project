@@ -13,10 +13,17 @@ print("Loaded database in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
 # - VU - Véhicules Utilitaires
 # - TC - Transport en Commun
 # - Moto lourde
-# - Moto legere
+# - Moto légère
 # - Cyclo
+
+# Accident Types:
+# - mortel
+# - grave non mortel
+# - Léger
+
 t_1 = time.time()
-totalaccidents_2010 = dp.getInfo(df, 2010, accidentType="mortel",vehicleType="VU")
+# Demonstration on how to use the function
+totalaccidents_2010 = dp.getInfo(df, 2010, accidentType="Léger",vehicleType="TC", age=2)
 t_2 = time.time()
 
 print(totalaccidents_2010)
