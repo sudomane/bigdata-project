@@ -28,3 +28,11 @@ t_2 = time.time()
 
 print(totalaccidents_2010)
 print("Fetched data in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
+
+# TODO: Dynamically display different vehicle types, and accident types
+fig = px.histogram(
+    df,
+    x = df["Année"]
+)
+
+fig.show()
