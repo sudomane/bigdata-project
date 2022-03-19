@@ -30,6 +30,7 @@ print(totalaccidents_2010)
 print("Fetched data in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
 
 # TODO: Dynamically display different vehicle types, and accident types
+# NOTE: Refer to Chapter 23 - Dynamic Graphs with Plotly -- Subplots, in docker courses, check unemployment graph for more info
 fig = px.histogram(
     df,
     x = df["Année"]
