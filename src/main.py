@@ -1,6 +1,8 @@
 import time
+import plotly.graph_objects as go
 import plotly.express as px
 import dataprocessing as dp
+from IPython.display import display
 
 t_1 = time.time()
 df = dp.loadData()
@@ -24,8 +26,9 @@ print("Loaded database in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
 # TODO: Dynamically display different vehicle types, and accident types
 # NOTE: Refer to Chapter 23 - Dynamic Graphs with Plotly -- Subplots, in docker courses, check unemployment graph for more info
 fig = px.histogram(
-    totalaccidents,
-    x = "Année"
+    df,
+    x = "Année",
+    color = "Type Accident"
 )
-
+fig.update_layout(bargap=0.2)
 fig.show()
