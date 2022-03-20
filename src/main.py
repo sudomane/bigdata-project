@@ -28,7 +28,7 @@ print("Loaded database in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
 fig = px.histogram(
     df,
     x = "Année",
-    color = "Type Accident"
+    color = "Catégorie véhicule"
 )
 fig.update_layout(bargap=0.2)
 fig.show()
