@@ -24,7 +24,7 @@ print("Loaded database in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
 # - Léger
 
 # TODO: Dynamically display different vehicle types, and accident types
-# NOTE: Refer to Chapter 23 - Dynamic Graphs with Plotly -- Subplots, in docker courses, check unemployment graph for more info
+# NOTE: Refer to "Aggregation" for more information. Check plotly documentation
 fig = px.histogram(
     df,
     x = "Année",
