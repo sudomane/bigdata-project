@@ -42,8 +42,9 @@ fig2 = make_subplots(rows=2, cols=1)
 for v in vechicles:
     data = dp.getInfo(df=df, vehicleType=v)
     trace = go.Histogram(
-            x = data["Année"],
-            bingroup=1
+        name = v,
+        x = data["Année"],
+        bingroup=1
     )
     fig2.add_trace(trace, 1, 1)
 fig2.update_layout(barmode="overlay",
