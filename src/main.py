@@ -19,6 +19,7 @@ print("Loaded database in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
 # - Moto légère
 # - Cyclo
 
+print(df)
 vechicles = ["VT", "Cyclo", "Moto lourde", "VU", "Moto légère", "PL", "Autres", "TC", "Indéterminable"]
 
 # Accident Types:
@@ -28,25 +29,28 @@ vechicles = ["VT", "Cyclo", "Moto lourde", "VU", "Moto légère", "PL", "Autres"
 
 # TODO: Dynamically display different vehicle types, and accident types
 # NOTE: Refer to "Aggregation" for more information. Check plotly documentation
-fig = px.histogram(
+f1 = px.histogram(
     df,
     x = "Année",
     color = "Catégorie véhicule"
 )
-fig.update_layout(bargap=0.2)
-fig.show()
+f1.update_layout(bargap=0.2)
+f1.show()
+#
+#
+# fig2 = make_subplots(rows=2, cols=1)
+#
+# for v in vechicles:
+#     data = dp.getInfo(df=df, vehicleType=v)
+#     trace = go.Histogram(
+#         name = v,
+#         x = data["Année"],
+#         bingroup=1
+#     )
+#     fig2.add_trace(trace, 1, 1)
+# fig2.update_layout(barmode="overlay",
+#                    bargap=0.1)
+# fig2.show()
 
-
-fig2 = make_subplots(rows=2, cols=1)
-
-for v in vechicles:
-    data = dp.getInfo(df=df, vehicleType=v)
-    trace = go.Histogram(
-        name = v,
-        x = data["Année"],
-        bingroup=1
-    )
-    fig2.add_trace(trace, 1, 1)
-fig2.update_layout(barmode="overlay",
-                   bargap=0.1)
-fig2.show()
+f2 = px.scatter(df[df["Année"] == 2019], y="Age véhicule", color = "Catégorie véhicule")
+f2.show()
