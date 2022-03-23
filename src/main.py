@@ -25,10 +25,18 @@ print("Loaded database in " + "{:.2f}".format(t_2 - t_1) + " seconds!")
 
 # TODO: Dynamically display different vehicle types, and accident types
 # NOTE: Refer to "Aggregation" for more information. Check plotly documentation
-fig = px.histogram(
-    df,
-    x = "Année",
-    color = "Catégorie véhicule"
-)
-fig.update_layout(bargap=0.2)
+
+vehicles = ["VT", "Cyclo", "Moto lourde", "VU", "Moto légère", "PL", "Autres", "TC", "Indéterminable"]
+
+fig = go.Figure()#make_subplots(rows=1, cols=1)
+
+for v in vehicles:
+    data = dp.getInfo(df=df, vehicleType=v)
+    trace = go.Histogram(name = v, x = data["Année"])
+    fig.add_trace(trace)
+
+fig.update_layout(barmode="stack", bargap=0.2)
 fig.show()
+
+#f2 = px.scatter(df[df["Année"] == 2019], y="Age véhicule", color = "Catégorie véhicule")
+#f2.show()
