@@ -55,3 +55,12 @@ def getInfo(df : pd.DataFrame, year=None, accidentType=None, vehicleType=None, a
         mask = mask & (df["Age véhicule"] == age)
 
     return df.loc[mask].copy(deep=True)
+
+def getCounts(df: pd.DataFrame):
+    res = df.groupby(["Age véhicule", "Type Accident", "Année"])
+    mdf = pd.DataFrame({'Age véhicule': [], 'Type Accident': [], 'Année': [], 'Count': []})
+    for i, g in enumerate(res):
+        age, a_type, year = g[0]
+        mdf.loc[i] = [age, a_type, year, g[1].size]
+    return mdf
+    
